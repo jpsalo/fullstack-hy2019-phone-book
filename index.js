@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
+app.use(express.static('build'))
 app.use(cors())
 
 // app.use(morgan('POST body length in bytes :res[content-length] :message'))
@@ -55,10 +56,6 @@ let persons = [
     number: '3490857435',
   },
 ]
-
-app.get('/', (req, res) => {
-  res.send('<h1>Phone World!</h1>')
-})
 
 app.get('/info', (req, res) => {
   const info = `Puhelinluettelossa on ${persons.length} henkilön tiedot`
